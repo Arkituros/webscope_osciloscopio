@@ -86,10 +86,10 @@ Web application for visualizing oscilloscope signals (current vs. time) from CSV
     - [ ] (Optional) Add PNG export
 
 - [ ] Implement Documentation and Report
-    - [X] Create README.md with project description, setup and usage instructions, screenshots, CI and Docker instructions
+    - [X] ~~Create README.md with project description, setup and usage instructions, screenshots, CI and Docker instructions~~
     - [ ] Create relatorio.md including branching strategy (Git Flow), change control, CI/CD workflow, versioning strategy, issue lifecycle, team reflections
     - [ ] Create CHANGELOG.md and populate with:
-        - [ ] v0.1.0 — Initial HTML + upload
+        - [X] ~~v0.1.0 — Initial HTML + upload~~
         - [ ] ...
         - [ ] v1.0.0 — Full features
 
