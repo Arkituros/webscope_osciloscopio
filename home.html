@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Osciloscope</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 5px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        main {
+            flex: 1;
+            max-width: 1000px;
+            width: 100%;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-box {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #333;
+            border-radius: 4px;
+        }
+
+        .content-box h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .content-box p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 10px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Web Osciloscope</h1>
+        <p>An Interactive Web viewer for CSV oscilloscope data</p>
+    </header>
+
+    <main>
+        <div class="container">
+            <div id="controls">
+                <div style="margin-bottom: 10px; display: flex; align-items: center;">
+                    <div class="file-input-wrapper">
+                        <input type="file" id="csvFile" accept=".csv" />
+                        <span class="file-label">Load CSV Data</span>
+                    </div>
+                </div>
+
+                <div id="control-panels">
+                    <div id="y-scale-group" class="control-group-box">
+                        <strong>Vertical Scale (mA):</strong>
+                        <div class="scale-panel">
+                            <div class="scale-inputs-and-buttons">
+                                <div class="scale-item">
+                                    <label for="minY">Minimum (mA)</label>
+                                    <input type="number" id="minY" placeholder="Auto" step="any" />
+                                </div>
+
+                                <div class="scale-item">
+                                    <label for="maxY">Maximum (mA)</label>
+                                    <input type="number" id="maxY" placeholder="Auto" step="any" />
+                                </div>
+
+                                <div class="scale-buttons">
+                                    <button class="action-button" onclick="applyYAxisScale()">Apply</button>
+                                    <button class="action-button secondary" onclick="resetYAxisScale()">Auto</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="display-section">
+                <div id="global-stats">
+                    <div class="display-item"><span class="display-label">N Points</span><span class="global-value"
+                            id="stats-count">---</span></div>
+                    <div class="display-item"><span class="display-label">Min General (mA)</span><span
+                            class="global-value" id="stats-min">---</span></div>
+                    <div class="display-item"><span class="display-label">Max General (mA)</span><span
+                            class="global-value" id="stats-max">---</span></div>
+                    <div class="display-item"><span class="display-label">Average General (mA)</span><span
+                            class="global-value" id="stats-avg">---</span></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <div id="toast-container"></div>
+
+    <footer>
+        <p>2025 All rights reserved.</p>
+        <p>Little cute Foot :)</p>
+    </footer>
+</body>
+
+</html>
