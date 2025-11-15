@@ -16,10 +16,10 @@ Web application for visualizing oscilloscope signals (current vs. time) from CSV
 
 ## 🧭Overview of Main Tasks
 - [ ] Implement Base HTML with CSV Upload
-    - [ ] Create initial project structure (index.html, script.js, styles.css)
-    - [ ] Add CSV upload input (<input type="file" accept=".csv">)
-    - [ ] Display selected filename in UI
-    - [ ] Add container for controls and statistics
+    - [X] Create initial project structure (index.html, script.js, styles.css)
+    - [X] Add CSV upload input (<input type="file" accept=".csv">)
+    - [X] Display selected filename in UI
+    - [X] Add container for controls and statistics
     - [ ] Implement basic file reading (JavaScript FileReader)
     - [ ] Validate file extension (.csv)
     - [ ] Error handling for empty/invalid file
@@ -27,7 +27,7 @@ Web application for visualizing oscilloscope signals (current vs. time) from CSV
     - [ ] Prepare DOM placeholders for future features (stats, charts, cursors)
 
 - [ ] Add Calculations (Sample Count, Min, Max, Average)
-    - [ ] Integrate PapaParse (CDN or npm)
+    - [ ] Integrate PapaParse
     - [ ] Parse CSV into a structured dataset
     - [ ] Extract required columns: Time (s), Current (mA)
     - [ ] Validate numeric conversion (filter invalid rows)
@@ -86,15 +86,12 @@ Web application for visualizing oscilloscope signals (current vs. time) from CSV
     - [ ] (Optional) Add PNG export
 
 - [ ] Implement Documentation and Report
-    - [ ] Create README.md with project description, setup and usage instructions, screenshots, CI and Docker instructions
+    - [X] Create README.md with project description, setup and usage instructions, screenshots, CI and Docker instructions
     - [ ] Create relatorio.md including branching strategy (Git Flow), change control, CI/CD workflow, versioning strategy, issue lifecycle, team reflections
     - [ ] Create CHANGELOG.md and populate with:
         - [ ] v0.1.0 — Initial HTML + upload
-        - [ ] v0.2.0 — CSV parsing + stats
-        - [ ] v0.3.0 — Charts
+        - [ ] ...
         - [ ] v1.0.0 — Full features
-    - [ ] Ensure documentation follows repository structure
-    - [ ] Add diagrams or architecture overview (optional)
 
 ## 👥 Authors
 - **Arthur Oliveira**
