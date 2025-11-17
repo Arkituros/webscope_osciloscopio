@@ -20,9 +20,9 @@ Web application for visualizing oscilloscope signals (current vs. time) from CSV
     - [X] ~~Add CSV upload input (<input type="file" accept=".csv">)~~
     - [X] ~~Display selected filename in UI~~
     - [X] ~~Add container for controls and statistics~~
-    - [ ] Implement basic file reading (JavaScript FileReader)
+    - [x]~~Implement basic file reading (JavaScript FileReader)~~
     - [ ] Validate file extension (.csv)
-    - [ ] Error handling for empty/invalid file
+    - [x] ~~Error handling for empty/invalid file~~
     - [ ] Console output to confirm file loading
     - [ ] Prepare DOM placeholders for future features (stats, charts, cursors)
 
