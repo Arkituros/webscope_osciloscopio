@@ -922,4 +922,4 @@ function renderCursorOverlays() {
 window.onload = () => {
     updateGlobalStatsUI();
     updateDigitalDisplay();
-}
+};
