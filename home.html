@@ -5,99 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Osciloscope</title>
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        header {
-            background-color: #333;
-            color: white;
-            padding: 5px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        main {
-            flex: 1;
-            max-width: 1000px;
-            width: 100%;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .content-box {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #f9f9f9;
-            border-left: 4px solid #333;
-            border-radius: 4px;
-        }
-
-        .content-box h2 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-
-        .content-box p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 5px;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-            font-size: 10px;
-        }
-
-        footer p {
-            margin: 5px 0;
-        }
-
-        footer a {
-            color: #4CAF50;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <script src="scripts\echarts.min.js"></script>
+    <script src="scripts\papaparse.min.js"></script>
+    <link rel="stylesheet" href="css\styles.css">
+    <script src="scripts\script.js"></script>
 </head>
 
 <body>
@@ -114,6 +25,7 @@
                         <input type="file" id="csvFile" accept=".csv" />
                         <span class="file-label">Load CSV Data</span>
                     </div>
+                    <span id="loaded-file-name" style="color: #6c757d; font-style: italic;">No File</span>
                 </div>
 
                 <div id="control-panels">
@@ -138,25 +50,78 @@
                             </div>
                         </div>
                     </div>
+
+                    <div id="action-controls-group" class="control-group-box">
+                        <strong>View Control:</strong>
+                        <div class="action-button-group">
+                            <button class="action-button secondary" onclick="clearChart()">Clean All</button>
+                            <button class="action-button secondary" onclick="clearCursors()">Clear Cursors</button>
+                            <button id="toggleSymbolsButton" class="action-button secondary" onclick="toggleSymbols()"
+                                disabled>Show Points (Off)</button>
+                        </div>
+                    </div>
+
+                    <div id="global-utility-group" class="control-group-box">
+                        <strong>Fast Actions:</strong>
+                        <div class="action-button-group">
+                            <button id="resetZoomButton" class="action-button secondary" onclick="resetXAxisZoom()"
+                                disabled>Reset Zoom (X)</button>
+                            <button id="exportButton" class="action-button success" onclick="exportChartAsSVG()"
+                                disabled>Export Chart (SVG)</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div id="display-section">
                 <div id="global-stats">
-                    <div class="display-item"><span class="display-label">N Points</span><span class="global-value"
+                    <div class="display-item"><span class="display-label">N POINTS</span><span class="global-value"
                             id="stats-count">---</span></div>
-                    <div class="display-item"><span class="display-label">Min General (mA)</span><span
+                    <div class="display-item"><span class="display-label">MIN GENERAL (mA)</span><span
                             class="global-value" id="stats-min">---</span></div>
-                    <div class="display-item"><span class="display-label">Max General (mA)</span><span
+                    <div class="display-item"><span class="display-label">MAX GENERAL (mA)</span><span
                             class="global-value" id="stats-max">---</span></div>
-                    <div class="display-item"><span class="display-label">Average General (mA)</span><span
+                    <div class="display-item"><span class="display-label">AVERAGE GENERAL (mA)</span><span
                             class="global-value" id="stats-avg">---</span></div>
                 </div>
+
+                <div id="digital-display">
+                    <div class="display-item"><span class="display-label">ΔT (Cursors)</span><span
+                            id="display-dt">---</span></div>
+                    <div class="display-item"><span class="display-label">POINTS (Cursors)</span><span
+                            id="display-count-ab">---</span></div>
+                    <div class="display-item"><span class="display-label">MAX (Cursors)</span><span
+                            id="display-max">---</span></div>
+                    <div class="display-item"><span class="display-label">AVERAGE (Cursors)</span><span
+                            id="display-avg">---</span></div>
+                </div>
             </div>
-        </div>
+
+            <div id="chart-container-wrapper">
+                <div id="chart-container"></div>
+                <div id="loading-overlay">
+                    <div class="spinner"></div>
+                    <div class="loading-text">Processing...</div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h3>How to Use Markers</h3>
+                <p>
+                    <strong>Marker A (Red):</strong> Click on the chart at your first measurement point to place the red
+                    marker. This marks the start of your measurement.
+                </p>
+                <p>
+                    <strong>Marker B (Blue):</strong> Click on a second point in the chart to place the blue marker. The
+                    area between the markers will be highlighted.
+                </p>
+                <p>
+                    <strong>Clear Markers:</strong> Use the "Clear Cursors" button to remove both markers and start a
+                    new measurement.
+                </p>
+            </div>
+
     </main>
-
-
 
     <div id="toast-container"></div>
 

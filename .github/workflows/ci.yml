@@ -33,13 +33,13 @@ jobs:
 
       # Validates HTML CSS and JS
       - name: Validate HTML
-        run: npx htmlhint "src/**/*.html"
+        run: npx htmlhint "scr/**/*.html"
 
       - name: Validate CSS
-        run: npx stylelint "src/**/*.css"
+        run: npx stylelint "scr/CSS/*.css"
 
       - name: Validate JS
-        run: npx eslint "src/**/*.js"
+        run: npx eslint "scr/scripts/*.js"
 
     # Build docker image
       - name: Build Docker image

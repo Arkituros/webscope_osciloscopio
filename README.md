@@ -15,83 +15,83 @@ Web application for visualizing oscilloscope signals (current vs. time) from CSV
 - Docker and GitHub Actions
 
 ## 🧭Overview of Main Tasks
-- [ ] Implement Base HTML with CSV Upload
+- [X] ~~Implement Base HTML with CSV Upload~~
     - [X] ~~Create initial project structure (index.html, script.js, styles.css)~~
     - [X] ~~Add CSV upload input (<input type="file" accept=".csv">)~~
     - [X] ~~Display selected filename in UI~~
     - [X] ~~Add container for controls and statistics~~
     - [x] ~~Implement basic file reading (JavaScript FileReader)~~
-    - [ ] Validate file extension (.csv)
+    - [X] ~~Validate file extension (.csv)~~
     - [x] ~~Error handling for empty/invalid file~~
-    - [ ] Console output to confirm file loading
-    - [ ] Prepare DOM placeholders for future features (stats, charts, cursors)
+    - [X] ~~Console output to confirm file loading~~
+    - [X] ~~Prepare DOM placeholders for future features (stats, charts, cursors)~~
 
-- [ ] Add Calculations (Sample Count, Min, Max, Average)
-    - [ ] Integrate PapaParse
-    - [ ] Parse CSV into a structured dataset
-    - [ ] Extract required columns: Time (s), Current (mA)
-    - [ ] Validate numeric conversion (filter invalid rows)
-    - [ ] Calculate total samples (N points)
-    - [ ] Calculate minimum current value
-    - [ ] Calculate maximum current value
-    - [ ] Calculate average current value
-    - [ ] Display computed values in UI fields
-    - [ ] Add warning if CSV contains malformed data
-    - [ ] Create test CSV samples for validation (tests/sample.csv)
+- [X] ~~Add Calculations (Sample Count, Min, Max, Average)~~
+    - [X] ~~Integrate PapaParse~~
+    - [X] ~~Parse CSV into a structured dataset~~
+    - [X] ~~Extract required columns: Time (s), Current (mA)~~
+    - [X] ~~Validate numeric conversion (filter invalid rows)~~
+    - [X] ~~Calculate total samples (N points)~~
+    - [X] ~~Calculate minimum current value~~
+    - [X] ~~Calculate maximum current value~~
+    - [X] ~~Calculate average current value~~
+    - [X] ~~Display computed values in UI fields~~
+    - [X] ~~Add warning if CSV contains malformed data~~
+    - [X] ~~Create test CSV samples for validation (tests/sample.csv)~~
 
 - [ ] Implement CSS and Full UI Styling
-    - [ ] Create responsive layout container
-    - [ ] Style upload button and status text
-    - [ ] Add bordered panels for vertical scale controls, visualization controls, quick actions
-    - [ ] Style global statistics cards
+    - [X] ~~Create responsive layout container~~
+    - [X] ~~Style upload button and status text~~
+    - [X] ~~Add bordered panels for vertical scale controls, visualization controls, quick actions~~
+    - [X] ~~Style global statistics cards~~
     - [ ] Style cursor analysis section (dark digital-style panels)
-    - [ ] Add consistent button styles (primary, secondary)
-    - [ ] Add hover/focus states for better UX
-    - [ ] Ensure mobile/tablet responsiveness
-    - [ ] Add consistent spacing, padding, and typography
+    - [X] ~~Add consistent button styles (primary, secondary)~~
+    - [X] ~~Add hover/focus states for better UX~~
+    - [X] ~~Ensure mobile/tablet responsiveness~~
+    - [X] ~~Add consistent spacing, padding, and typography~~
 
-- [ ] Implement Chart Rendering
-    - [ ] Add ECharts script (via CDN)
-    - [ ] Create <div id="chart-container"> with responsive size
-    - [ ] Convert parsed CSV values into chart-ready arrays
-    - [ ] Render waveform (Current vs Time)
-    - [ ] Add zooming (dataZoom)
-    - [ ] Add panning (inside zoom)
-    - [ ] Add tooltip on hover
-    - [ ] Add optional point display toggle
-    - [ ] Handle chart updates when new CSV is loaded
-    - [ ] Add error handling for empty or invalid dataset
+- [X] ~~Implement Chart Rendering~~
+    - [X] ~~Add ECharts script~~
+    - [X] ~~Create <div id="chart-container"> with responsive size~~
+    - [X] ~~Convert parsed CSV values into chart-ready arrays~~
+    - [X] ~~Render waveform (Current vs Time)~~
+    - [X] ~~Add zooming (dataZoom)~~
+    - [X] ~~Add panning (inside zoom)~~
+    - [X] ~~Add tooltip on hover~~
+    - [X] ~~Add optional point display toggle~~
+    - [X] ~~Handle chart updates when new CSV is loaded~~
+    - [X] ~~Add error handling for empty or invalid dataset~~
 
-- [ ] Implement Markers / Cursors
-    - [ ] Capture click events on the chart
-    - [ ] Identify nearest data point to cursor click
-    - [ ] Assign cursor A on first click
-    - [ ] Assign cursor B on second click
-    - [ ] Add visible markers for A and B (scatter points)
-    - [ ] Highlight selected region (ECharts markArea)
-    - [ ] Compute Δt for selected interval
-    - [ ] Compute points in interval
-    - [ ] Compute min, max, average value in cursor region
-    - [ ] Display computed values in the cursor analysis panel
-    - [ ] Add “Clear Cursors” button functionality
-    - [ ] Add “Show/Hide points” interaction if needed
+- [X] ~~Implement Markers / Cursors~~
+    - [X] ~~Capture click events on the chart~~
+    - [X] ~~Identify nearest data point to cursor click~~
+    - [X] ~~Assign cursor A on first click~~
+    - [X] ~~Assign cursor B on second click~~
+    - [X] ~~Add visible markers for A and B (scatter points)~~
+    - [X] ~~Highlight selected region (ECharts markArea)~~
+    - [X] ~~Compute Δt for selected interval~~
+    - [X] ~~Compute points in interval~~
+    - [X] ~~Compute min, max, average value in cursor region~~
+    - [X] ~~Display computed values in the cursor analysis panel~~
+    - [X] ~~Add “Clear Cursors” button functionality~~
+    - [X] ~~Add “Show/Hide points” interaction if needed~~
 
 - [ ] Implement Export to Image / SVG
-    - [ ] Extract SVG from ECharts container
-    - [ ] Append annotation text (statistics) into SVG
-    - [ ] Build downloadable file (export.svg)
-    - [ ] Add “Export Graph (SVG)” button
-    - [ ] Disable export button if no data loaded
-    - [ ] Validate exported SVG opens in Chrome, Firefox, Inkscape
+    - [X] ~~Extract SVG from ECharts container~~
+    - [X] ~~Append annotation text (statistics) into SVG~~
+    - [X] ~~Build downloadable file (export.svg)~~
+    - [X] ~~Add “Export Graph (SVG)” button~~
+    - [X] ~~Disable export button if no data loaded~~
+    - [X] ~~Validate exported SVG opens in Chrome, Firefox, Inkscape~~
     - [ ] (Optional) Add PNG export
 
 - [ ] Implement Documentation and Report
     - [X] ~~Create README.md with project description, setup and usage instructions, screenshots, CI and Docker instructions~~
     - [ ] Create relatorio.md including branching strategy (Git Flow), change control, CI/CD workflow, versioning strategy, issue lifecycle, team reflections
-    - [ ] Create CHANGELOG.md and populate with:
+    - [X] Create CHANGELOG.md and populate with:
         - [X] ~~v0.1.0 — Initial HTML + upload~~
-        - [ ] ...
-        - [ ] v1.0.0 — Full features
+        - [X] ~~v1.0.0 — Full features~~
+        - [ ] v1.X.X — Updates...
 
 ## 👥 Authors
 - **Arthur Oliveira**
