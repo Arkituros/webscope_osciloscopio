@@ -36,10 +36,10 @@ jobs:
         run: npx htmlhint "**/*.html"
 
       - name: Validate CSS
-        run: npx stylelint "css/**/*.css"
+        run: npx prettier --check "css/**/*.css"
 
       - name: Validate JS
-        run: npx eslint "scripts/**/*.js"
+        run: npx standard "scripts/**/*.js"
 
     # Build docker image
       - name: Build Docker image
