@@ -92,25 +92,7 @@ Web application for visualizing oscilloscope signals (current vs. time) from CSV
         - [X] ~~v0.1.0 — Initial HTML + upload~~
         - [X] ~~v1.0.0 — Full features~~
         - [ ] v1.X.X — Updates...
-- **Versionamento :** Usamos pouco versionamento, mas aprendemos a criar tags e releases.
-- **Rastreabilidade via Issues e Pull Requests:** Essa é uma função que ajuda muito a comunicação entre os membros do time e o controle das mudanças dentro do programa,quando o Arthur modifica algo eu podia aprovar ou não a modificação, e vice versa, isso facilita muito o andamento do trabalho à distancia.
-- **Automação de CI/CD:** Os benefícios da integração e automação contínua para detectar erros cedo e manter a aplicação funcional.
-- **Documentação e Comunicação:** O progresso do trabalho é posto no readme.md, isso faz com que controlemos o que já foi feito e o que ainda precisa ser feito, asim como considerar se é realmente necessária colocando-a como opicional. 
-- **Ambiente Replicável:** Usar Docker ajuda, principalmente porque é uma forma de atualizar o projeto sem mexer no projeto original, e facilita a utilização de branches.
-- **Colaboração Multidisciplinar:** Simular diferentes posições durante o projeto nos dá uma visão maior de como funciona a organização de um projeto de software, em cada posição, como testar e aprovar uma modificação, ou ter a sua atualização negada porque ficou errada, fora ter de lidar com requests e tarefas que precisam ser realizadas, e que nem sempre serão, seja por falta de capacidade técnica, ou discordancia interna, ou por falta de tempo.  
 
-## ⚠️ Dificuldades Encontradas
-
-Durante o projeto, enfrentamos os seguintes desafios e  conseguirmos solucioná-los com pesquisa, e utilização de fóruns.
-
-- **Bloqueio em Pull por Autenticação:** Se tem algo que pode prejudicar é a autenticação de membros, para atualizar tivemos problemas de atutenticação, que não se resolveram com troca de senha, a solução foi utilizar tokens temporários (modo classico) e criar uma permissão geral de modificação dentro do token com permissões customizados.
-- **Conflitos de Merge em Branches:** As vezes os branches não deram muito certo, com conflitos por falta de habilidade com o ambiente.
-
-- **Divergências na Estrutura das Issues:** No inicio do projeto tivemos muita dificuldade com a forma de estruturar as issues, tentar padronizar a estrutura das issues para que fosse mais fácil entender.
-
----
-
-Usar a plataforma foi a forma mais interessante de aprender as  e boas práticas de SCM e entender como e quando devemos utilizar essas ferramentas.
 ## 👥 Authors
 - **Arthur Oliveira**
 - **Marinel Borges**
